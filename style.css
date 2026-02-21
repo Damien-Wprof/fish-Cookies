@@ -11,3 +11,17 @@
     background-color: salmon;
     text-align: left;
 }
+
+h2 {
+    text-align: left;
+    color: black;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-indent: 3%;
+}
+
+p {
+    text-align: left;
+    text-indent: 4%;
+}
