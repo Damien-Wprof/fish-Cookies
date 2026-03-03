@@ -7,6 +7,7 @@ const hours = [
 ];
 
 const tableElement = document.getElementById('sales-table');
+const formElement = document.getElementById('click-box');
 
 const state = {
   allCookieStands: [],
@@ -153,3 +154,32 @@ function makeFooterRow() {
 
   makeFooterRow();
 })();
+
+function handleForm(e) {
+    e.preventDefault();
+    
+    let loc = e.target.location.value
+    let min = parseInt(e.target.min.value);
+    let max = parseInt(e.target.max.value);
+    let avg = parseFloat(e.target.avg.value);
+
+
+    const newStore = new CookieStand(loc, min, max, avg);
+    state.allCookieStands.push(newStore)
+
+   
+
+  e.target.location.value = null;
+  e.target.min.value = null;
+  e.target.max.value = null;
+  e.target.avg.value = null;
+
+    tableElement.lastChild.remove();
+    newStore.render();
+    makeFooterRow();
+    e.target.reset();
+}
+
+
+
+formElement.addEventListener('submit', handleForm);
